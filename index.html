@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Run · job search ledger</title>
+  <meta name="description" content="Daily job search routine and application pipeline.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Public+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+
+<header class="masthead">
+  <div class="masthead__inner">
+    <div>
+      <div class="brand">THE <em>RUN</em></div>
+      <p class="brand__tag">job search ledger</p>
+    </div>
+
+    <div class="metrics">
+      <div class="metric"><b data-metric="streak">0</b><small>day streak</small></div>
+      <div class="metric"><b data-metric="replies">0</b><small>replies</small></div>
+      <div class="metric"><b data-metric="live">0</b><small>live apps</small></div>
+      <div class="metric"><b data-metric="total">0</b><small>total sent</small></div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section>
+    <div class="section-head">
+      <h2>Today</h2>
+      <p class="eyebrow" id="today-label"></p>
+    </div>
+
+    <div class="progress"><i id="progress-fill"></i></div>
+    <div class="reps" id="reps"></div>
+    <p class="all-clear" id="all-clear">Six for six. Close the laptop.</p>
+
+    <div class="tape-block">
+      <div class="tape" id="tape"></div>
+      <div class="tape__axis">
+        <span>30 days back</span>
+        <span id="tape-summary"></span>
+        <span>today</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <h2>Pipeline</h2>
+      <p class="eyebrow" id="week-note"></p>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><b data-stat="weekApps">0</b><small>sent this week</small></div>
+      <div class="stat"><b data-stat="weekReach">0</b><small>outreach this week</small></div>
+      <div class="stat stat--accent"><b data-stat="responseRate">0%</b><small>response rate</small></div>
+      <div class="stat"><b data-stat="stale">0</b><small>going stale</small></div>
+    </div>
+
+    <div class="new-app">
+      <input id="new-company" placeholder="Company" autocomplete="off">
+      <input id="new-role" placeholder="Role" autocomplete="off">
+      <select id="new-source">
+        <option value="Cold">Cold apply</option>
+        <option value="Referral">Referral</option>
+        <option value="Recruiter">Recruiter</option>
+        <option value="Career fair">Career fair</option>
+      </select>
+      <input id="new-date" type="date">
+      <button class="btn" id="add-app">Add</button>
+    </div>
+
+    <div class="table-frame">
+      <table>
+        <thead>
+          <tr>
+            <th>Company</th>
+            <th>Role</th>
+            <th>Source</th>
+            <th>Applied</th>
+            <th>Status</th>
+            <th><span class="sr-only">Remove</span></th>
+          </tr>
+        </thead>
+        <tbody id="app-rows"></tbody>
+      </table>
+    </div>
+    <p class="hint">Anything still on Applied after 10 days gets flagged. That is your follow up list.</p>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <h2>Your data</h2>
+      <p class="eyebrow">stays in this browser</p>
+    </div>
+
+    <div class="toolbar">
+      <button class="btn btn--ghost btn--sm" id="export">Export backup</button>
+      <button class="btn btn--ghost btn--sm" id="import">Import backup</button>
+      <input type="file" id="import-file" accept="application/json" hidden>
+    </div>
+    <p class="hint">Nothing is uploaded anywhere. Export a backup every Friday, and import it if you switch laptop or browser.</p>
+  </section>
+
+  <footer>Open this before email, not after.</footer>
+</main>
+
+<script type="module" src="js/app.js"></script>
+</body>
+</html>
